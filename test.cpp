@@ -12,6 +12,21 @@ TEST(EchoTest, EmptyString) {
     EXPECT_EQ("", echo(1,test_val));
 }
 
+TEST(EchoTest, NumberTest) {
+    char* test_val[2]; test_val[0] = "./c-echo"; test_val[1] = "5";
+    EXPECT_EQ("5", echo(2,test_val));
+}
+
+TEST(EchoTest, SymbolTest) {
+    char* test_val[2]; test_val[0] = "./c-echo"; test_val[1] = "--=--";
+    EXPECT_EQ("--=--", echo(2,test_val));
+}
+
+TEST(EchoTest, ComplexAnswerTest) {
+    char* test_val[3]; test_val[0] = "./c-echo"; test_val[1] = "I'm"; test_val[2] = "8_years.";
+    EXPECT_EQ("I'm 8_years.", echo(3,test_val));
+}
+
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
